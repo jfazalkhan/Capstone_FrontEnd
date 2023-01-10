@@ -12,6 +12,7 @@ import { CustomerService } from './customerservice';
 })
 export class UserregistrationComponent {
 user_name: String = '';
+gender:string='';
 address: String = '' ;
 phone: String = '';
 accountNumber: String = '';
@@ -39,6 +40,7 @@ house: String = '';
       ngOnInit() {
         this.registerForm = this.formBuilder.group({
           userName: ['', Validators.required],
+          gender:['', Validators.required],
           address: ['', Validators.required],
           phoneNo: ['', Validators.required],
           accountType: ['', Validators.required],
@@ -131,6 +133,7 @@ console.log("before sending data to post value of formdata is"+this.formData)
 
       setValue() {
         this.user_name = this.registerForm.get('userName')?.value;
+        this.gender = this.registerForm.get('gender')?.value;
         this.address = this.registerForm.get('address')?.value;
         this.phone = this.registerForm.get('phoneNo')?.value;
         this.accountTyp = this.registerForm.get('accountType')?.value;
@@ -139,6 +142,7 @@ console.log("before sending data to post value of formdata is"+this.formData)
         this.area = this.registerForm.get('area')?.value; 
         this.pincode = this.registerForm.get('pincode')?.value; 
         console.log(this.user_name);
+        console.log(this.gender);
         console.log(this.address);
         console.log(this.phone);
         console.log(this.accountTyp);
@@ -167,6 +171,7 @@ console.log("before sending data to post value of formdata is"+this.formData)
               "houseNo": this.house
           },
           "userName": this.user_name,
+          "gender":this.gender,
           "phoneNo": this.phone,
           "accountType": this.accountTyp,
           "accountNumber": this.accountNumber

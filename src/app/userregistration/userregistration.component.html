@@ -22,6 +22,15 @@
             <div *ngIf="f['phoneNo'].errors['required']">PhoneNo is required</div>
         </div><br>
     </div>
+    <div class="form-group cols-5">
+        <label class="gender">Gender:</label>
+        <div>
+            <label class="male">Male </label>
+           <input id="male" type="radio" value="male" name="gender" formControlName="gender">          
+           <label class="female">Female </label>
+          <input id="female" type="radio" value="female" name="gender" formControlName="gender">          
+       </div>
+    </div>
     <div class="form-group col-5">
         <label  class="wd" for="accountType"> Account Type </label>
         <select formControlName="accountType" (change)="changeAccountType($event)"  class="selBox">
@@ -69,7 +78,7 @@
         <div *ngIf="f['pincode'].errors['required']">Pin Code required</div>
         </div>  <br>
     </div>
-    <div class="text-center">
+    <div class="">
          <button class="btn btn-primary mr-1" type="submit">submit</button>
          <div class="onaccountsuccess" *ngIf=successMsg> Account Got Created </div>
          <div class="onaccountsuccess" *ngIf=formsubmitstatus> please fill the required feilds</div>
