@@ -1,0 +1,79 @@
+
+
+<div class=container>
+
+<div class="card-body">
+    
+<h2 style="text-align: center">Customer Onboarding</h2>
+
+<form class="formsection" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-group col-5">
+        <label class="wd">User Name</label>
+        <input type="text" formControlName="userName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['userName'].errors }" (change)="valuechange($event)" />
+        <!-- <div *ngIf="submitted && f['userName'].errors" class="invalid-feedback" style="width: 93.5%;">
+            <div *ngIf="f['userName'].errors['required']">User Name is required</div>
+        </div><br> -->
+        <span class="errorbox" *ngIf=errMsg> *userName invalid </span>
+    </div>
+        <div class="form-group col-5">
+        <label class="wd">Phone Number</label>
+        <input type="text" formControlName="phoneNo" class="form-control " [ngClass]="{ 'is-invalid': submitted && f['phoneNo'].errors }" />
+        <div *ngIf="submitted && f['phoneNo'].errors" class="invalid-feedback"  style="width: 93.5%;">
+            <div *ngIf="f['phoneNo'].errors['required']">PhoneNo is required</div>
+        </div><br>
+    </div>
+    <div class="form-group col-5">
+        <label  class="wd" for="accountType"> Account Type </label>
+        <select formControlName="accountType" (change)="changeAccountType($event)"  class="selBox">
+        <option [ngValue]="null" disabled>Select Account Type</option>
+        <option *ngFor="let account of accountType">{{account.name}}</option>
+        </select>   
+    </div>
+    <div class="form-group col-5">
+        <label class="wd">Account Number</label>
+        <input type="text" formControlName="accountNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['accountNumber'].errors }" />
+        <div *ngIf="submitted && f['accountNumber'].errors" class="invalid-feedback">
+            <div *ngIf="f['accountNumber'].errors['required']">Account Number is required</div>
+        </div><br>
+            
+    </div>
+
+    <!-- <div class="form-group col-5">
+        <label class="wd">Address</label>
+        <input type="textarea" formControlName="address" class="form-control wd" [ngClass]="{ 'is-invalid': submitted && f['address'].errors }" />
+        <div *ngIf="submitted && f['address'].errors" class="invalid-feedback"  style="width: 93.5%;">
+            <div *ngIf="f['address'].errors['required']">Address is required</div>
+        </div><br>
+    </div> -->
+
+    <div class="form-group col-5">
+        <label class="wd">House No</label>
+        <input type="textarea" formControlName="houseNo" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['houseNo'].errors }" />
+        <div *ngIf="submitted && f['houseNo'].errors" class="invalid-feedback" >
+        <div *ngIf="f['houseNo'].errors['required']">houseNois required</div>
+        </div><br>
+    </div>
+    
+    <div class="form-group col-5">
+        <label class="wd">Area</label>
+        <input type="text" formControlName="area" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['area'].errors }" />
+        <div *ngIf="submitted && f['area'].errors" class="invalid-feedback" >
+        <div *ngIf="f['area'].errors['required']">Area is required</div>
+        </div><br>
+    </div>
+
+    <div class="form-group col-5">
+        <label class="wd">Pin Code</label>
+        <input type="text" formControlName="pincode" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['pincode'].errors }"/>
+        <div *ngIf="submitted && f['pincode'].errors" class="invalid-feedback" >
+        <div *ngIf="f['pincode'].errors['required']">Pin Code required</div>
+        </div>  <br>
+    </div>
+    <div class="text-center">
+         <button class="btn btn-primary mr-1" type="submit">submit</button>
+         <div class="onaccountsuccess" *ngIf=successMsg> Account Got Created </div>
+         <div class="onaccountsuccess" *ngIf=formsubmitstatus> please fill the required feilds</div>
+    </div>
+</form>
+</div>
+</div>
